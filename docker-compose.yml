@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  socket:
+    build: .
+    container_name: socket
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/go/src/github.com/user/go-socket
+    command: bash -c "go get github.com/pilu/fresh && fresh"
+
