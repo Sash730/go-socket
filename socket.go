@@ -21,8 +21,6 @@ func main() {
 	// HEALTH CHECK
 	r.HandleFunc("/socket.io", c.ViewReport)
 
-
-
 	// these two lines are important in order to allow access from the front-end side to the methods
 	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
 	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "DELETE", "PUT"})

@@ -10,6 +10,17 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+var (
+	// Websocket http upgrader
+	upgrader = websocket.Upgrader{
+		ReadBufferSize:  1024,
+		WriteBufferSize: 1024,
+		CheckOrigin: func(r *http.Request) bool {
+			return true
+		},
+	}
+)
+
 type RecentlyController struct {
 
 }
@@ -21,9 +32,6 @@ func NewRecentlyController() *RecentlyController {
 }
 
 func (rc RecentlyController) ViewReport(w http.ResponseWriter, req *http.Request) {
-
-	upgrader := websocket.Upgrader{}
-
 	c, err := upgrader.Upgrade(w, req, nil)
 	if err != nil {
 		log.Print("upgrade:", err)
