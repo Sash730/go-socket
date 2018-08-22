@@ -8,14 +8,14 @@ import (
 type UserPreferences struct {
 	ID              bson.ObjectId    `json:"id" bson:"_id"`
 	User            *User            `json:"user" bson:"user"`
-	RecentlyReports []RecentlyReport `json:"recently_reports" bson:"recently_reports"`
-	OpenReports     []RecentlyReport `json:"open_reports" bson:"open_reports"`
+	RecentlyReports []ReportActivity `json:"recently_reports" bson:"recently_reports"`
+	OpenReports     []ReportActivity `json:"open_reports" bson:"open_reports"`
 }
 
-type RecentlyReport struct {
-	Slug string    `json:"user" bson:"user"`
-	Type string    `json:"recently_reports" bson:"recently_reports"`
-	Time time.Time `json:"when" bson:"when"`
+type ReportActivity struct {
+	ReportID string    `json:"report_id" bson:"report_id"`
+	Slug     string    `json:"slug" bson:"slug"`
+	Time     time.Time `json:"when" bson:"when"`
 }
 
 //func (p *UserPreferences) СreatePreferences(e interface{}, pr Preference) error {
