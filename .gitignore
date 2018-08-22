@@ -1,4 +1,2 @@
 .idea
-/torch*
-/socket
-tmp/
+go-socket
