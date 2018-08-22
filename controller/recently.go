@@ -1,11 +1,11 @@
 package controller
 
 import (
-	"log"
-	"net/http"
 	"github.com/Sash730/go-socket/model"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
+	"log"
+	"net/http"
 
 	"github.com/gorilla/websocket"
 )
@@ -22,13 +22,10 @@ var (
 )
 
 type RecentlyController struct {
-
 }
 
 func NewRecentlyController() *RecentlyController {
-	return &RecentlyController{
-
-	}
+	return &RecentlyController{}
 }
 
 func (rc RecentlyController) ViewReport(w http.ResponseWriter, req *http.Request) {
@@ -50,7 +47,6 @@ func (rc RecentlyController) ViewReport(w http.ResponseWriter, req *http.Request
 		//err := json.Unmarshal([]byte(m), &msg)
 		//
 		//updateUserPreferences(msg)
-
 
 		err = c.WriteMessage(mt, message)
 		if err != nil {
